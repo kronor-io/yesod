@@ -244,7 +244,7 @@ serverValue = S8.pack $ concat
 -- Since 1.2.0
 mkDefaultMiddlewares :: Logger -> IO W.Middleware
 mkDefaultMiddlewares logger = do
-    logWare <- mkRequestLogger def
+    logWare <- mkRequestLogger defaultRequestLoggerSettings
         { destination = Network.Wai.Middleware.RequestLogger.Logger $ loggerSet logger
         , outputFormat = Apache FromSocket
         }
